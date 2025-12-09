@@ -8,11 +8,11 @@ CREATE TABLE users (
 );
 
 CREATE TABLE positions (
-  positions_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-  positions_code VARCHAR(100) NOT NULL,
-  positions_name VARCHAR(100) NOT NULL,
+  position_id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  position_code VARCHAR(100) NOT NULL,
+  position_name VARCHAR(100) NOT NULL,
   user_id INT NOT NULL,
-  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

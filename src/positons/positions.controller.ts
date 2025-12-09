@@ -32,10 +32,17 @@ export class PositionsController {
   }
 
   @UseGuards(JwtAuthGuard)
-  @Put(':position_id')
-  async update(@Param('position_id') position_id: string, @Body() body: any) {
-    return this.positionsService.updatePosition(+position_id, body);
-  }
+@Put(':position_id')
+async update(@Param('position_id') position_id: string, @Body() body: any) {
+
+  const updatedData = {
+    positions_code: body.position_code,  
+    positions_name: body.position_name,
+  };
+
+  return this.positionsService.updatePosition(+position_id, updatedData);
+}
+
 
   @UseGuards(JwtAuthGuard)
   @Delete(':position_id')
